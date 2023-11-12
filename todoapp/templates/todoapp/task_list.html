@@ -1,0 +1,24 @@
+{% if user.is_authenticated %}
+    Welcome, {{ user.username }}!
+    <p><a href="{% url 'logout' %}">Logout</a></p>
+{% else %}
+    <p><a href="{% url 'login' %}">Login</a></p>
+{% endif %}
+<table>
+        <h1>タスクリスト</h1>
+        <h1><td><a href="{% url 'task_create' %}">タスク追加</a></td></h1>
+
+        <form action="" method="get">
+            <input type="text" name="search" value="{{ search }}" >
+            <input type="submit" name="" value="検索">
+        </form>
+        
+    {% for task in TaskList %}
+        <tr >
+            <td style="padding: 10px;">{{ task.title }}</td>
+            
+            <td><a href="{% url 'task_edit' task.id %}">編集</a></td>
+            <td><a href="{% url 'task_delete' task.id %}">削除</a></td>
+        </tr>
+    {% endfor %}
+</table>
