@@ -5,11 +5,12 @@
     <p><a href="{% url 'login' %}">Login</a></p>
 {% endif %}
 <table>
-        {% csrf_token %}
+        
         <h1>タスクリスト</h1>
         <h1><td><a href="{% url 'task_create' %}">タスク追加</a></td></h1>
 
         <form action="" method="get">
+            {% csrf_token %}
             <input type="text" name="search" value="{{ search }}" >
             <input type="submit" name="" value="検索">
         </form>
