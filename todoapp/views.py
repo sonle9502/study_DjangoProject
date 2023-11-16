@@ -12,16 +12,17 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import FormView
 from django import forms
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import Task
 # Create your views here.
 
 class TaskList(LoginRequiredMixin,ListView):
     model = Task
-    template_name = 'todoapp/templates/.html'  # Path to your template
     context_object_name = 'TaskList'  # Name of the variable to use in the template
     paginate_by = 10  # Number of objects to display per page
 
+    @csrf_exempt
     def get_context_data(self, **kwargs):
         # Filter tasks based on the currently logged-in user
         context = super().get_context_data(**kwargs)
