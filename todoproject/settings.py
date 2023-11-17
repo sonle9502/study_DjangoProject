@@ -27,6 +27,11 @@ CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://www.<domain.com>',
+  ' web-production-280e.up.railway.app ',
+]
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
