@@ -16,13 +16,13 @@ from django.views.decorators.csrf import csrf_exempt
 
 from .models import Task
 # Create your views here.
-@csrf_exempt
+
 class TaskList(LoginRequiredMixin,ListView):
     model = Task
     context_object_name = 'TaskList'  # Name of the variable to use in the template
     paginate_by = 10  # Number of objects to display per page
 
-    
+    @csrf_exempt
     def get_context_data(self, **kwargs):
         # Filter tasks based on the currently logged-in user
         context = super().get_context_data(**kwargs)
