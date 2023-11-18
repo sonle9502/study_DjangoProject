@@ -1,10 +1,10 @@
 <!-- login.html -->
 {% extends 'todoapp/base.html' %}
+{% block title %}Login!{% endblock %}
 
-{% block title %}My Website!{% endblock %}
-{% block header %}My Website Header{% endblock %}
 {% block content %}
-<div class="Login-html">
+
+<div>
     <h2>Login</h2>
     <form method="post" action="">
         {% csrf_token %} 
@@ -15,4 +15,4 @@
     <a href="{% url 'register' %}">新規作成</a>
 
 </div>
-{% endblock %}
+{% endblock content %}

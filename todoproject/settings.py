@@ -128,7 +128,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles/")
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static/")
+    os.path.join(BASE_DIR, "todoapp/static/")
 ]
 
 
@@ -139,4 +139,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = 'login'
 
-LOGIN_REDIRECT_URL = 'tasks'
+# LOGIN_REDIRECT_URL = 'tasks'
