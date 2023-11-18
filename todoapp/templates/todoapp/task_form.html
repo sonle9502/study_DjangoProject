@@ -1,8 +1,16 @@
-<h2>タスクの追加</h2>
-<a href="{% url 'tasks' %}">戻る</a>
+{% extends 'todoapp/base.html' %}
 
-<form action="" method="post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="追加">
-</form>
+{% block title %}CreateTask - My Website!{% endblock %}
+{% block content %}
+<div class="CreateTask">
+    <h2>タスクの追加</h2>
+    <a href="{% url 'tasks' %}">戻る</a>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="追加">
+    </form>
+
+</div>
+{% endblock %}

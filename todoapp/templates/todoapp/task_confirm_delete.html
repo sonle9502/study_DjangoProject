@@ -1,4 +1,9 @@
 <!-- task_confirm_delete.html -->
+
+{% block title %}My Website!{% endblock %}
+{% block header %}My Website Header{% endblock %}
+{% block content %}
+
 <h2>Confirm Deletion</h2>
 <p>Are you sure you want to delete the task "{{ TaskDelete.title }}"?</p>
 
@@ -8,3 +13,5 @@
 </form>
 
 <a href="{% url 'tasks' %}">Cancel</a>
+
+{% endblock %}

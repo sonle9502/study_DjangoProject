@@ -1,9 +1,11 @@
-{% if user.is_authenticated %}
-    Welcome, {{ user.username }}!
-    <p><a href="{% url 'logout' %}">Logout</a></p>
-{% else %}
-    <p><a href="{% url 'login' %}">Login</a></p>
-{% endif %}
+<!-- home.html -->
+{% extends 'todoapp/base.html' %}
+
+{% block title %}Home - My Website!{% endblock %}
+
+{% block content %}
+    <h2>Welcome to the Home Page!</h2>
+    <p>This is the content for the home page.</p>
 <table>
         
         <h1>タスクリスト</h1>
@@ -23,4 +25,14 @@
             <td><a href="{% url 'task_delete' task.id %}">削除</a></td>
         </tr>
     {% endfor %}
+
+    <div class="LoginAndLogout">
+        {% if user.is_authenticated %}
+        Welcome, {{ user.username }}!
+        <p><a href="{% url 'logout' %}">Logout</a></p>
+        {% else %}
+        <p><a href="{% url 'login' %}">Login</a></p>
+        {% endif %}
+    </div>
 </table>
+{% endblock %}
