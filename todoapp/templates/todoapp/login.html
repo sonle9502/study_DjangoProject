@@ -3,16 +3,19 @@
 {% block title %}Login!{% endblock %}
 
 {% block content %}
-
-<div>
-    <h2>Login</h2>
-    <form method="post" action="">
+<div class="login-container">
+    <form class="login-form" method="post">
         {% csrf_token %} 
-        {{ form.as_p }}
+        <h1>Login</h1>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
         <button type="submit">Login</button>
+        <p>アカウントを持っていませんか？</p>
+        <a href="{% url 'register' %}">新規作成</a>
     </form>
-    <p>アカウントを持っていませんか？</p>
-    <a href="{% url 'register' %}">新規作成</a>
-
 </div>
 {% endblock content %}

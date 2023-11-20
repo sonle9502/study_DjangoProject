@@ -26,7 +26,6 @@ class TaskList(LoginRequiredMixin,ListView):
     def get_context_data(self, **kwargs):
         # Filter tasks based on the currently logged-in user
         context = super().get_context_data(**kwargs)
-        print(context)
 
         input_search_value = self.request.GET.get("search")
         # Filter data based on the user
