@@ -49,7 +49,7 @@ login css
 
 h1 {
     text-align: center;
-    color: #8f1212;
+    color: white;
 }
 
 label {
@@ -75,4 +75,14 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    z-index: 1;
 }
