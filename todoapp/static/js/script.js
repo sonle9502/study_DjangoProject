@@ -31,13 +31,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
         });
     });
-});
+    //Get info of clear condition button in search monitor
+    var myButton = document.getElementById('clear_condition');
+    myButton.addEventListener('click', function() {
+        
+        alert(myButton.textContent);
+    });
 
-// Get the button element
-var myButton = document.getElementById('clear_condition');
-
-// Add a click event listener to the button
-myButton.addEventListener('click', function() {
-  // Code to be executed when the button is clicked
-  alert('Button clicked!');
 });

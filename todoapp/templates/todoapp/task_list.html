@@ -11,8 +11,6 @@
         <p><a href="{% url 'login' %}">Login</a></p>
         {% endif %}
     </div>
-    <button id="clear_condition" class="clear-button">Clear</button>
-
     <div>
         <h1 style="color: black;">タスクリスト</h1>
         <h2 style="text-align: left;"><td><a href="{% url 'task_create' %}">タスク追加</a></td></h2>
@@ -27,7 +25,7 @@
                 </datalist>
                 <label for="condition-search">Choose a condition: </label>
                 <div class="button-container">
-                    <input type="text" name="condition_search" id="condition" list="conditions" placeholder="Type a condition" "> 
+                    <input type="text" name="condition_search" id="condition" list="conditions" placeholder="Type a condition"> 
                 </div>  
             </div>
             <div>
@@ -61,6 +59,7 @@
         </div>
         {% endfor %}
     </div>
+
 </div>
 
 {% endblock %}
