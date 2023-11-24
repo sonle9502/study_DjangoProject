@@ -93,12 +93,21 @@ button:hover {
     flex-direction: column;
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 30px;
   }
-
+.ID_Table {
+    flex: 1;
+    border: 1px solid #ddd;
+    /* border-bottom: 0.5px solid #000;  */
+    padding: 8px;
+    box-sizing: border-box;
+    width: 100px;
+}
 .row {
     display: flex;
     width: 100%;
+    margin-top: 2px;
+
   }
 .row:hover {
     background-color: blanchedalmond;
@@ -107,7 +116,43 @@ button:hover {
 .cell {
       flex: 1;
       border: 1px solid #ddd;
+      /* border-bottom: 0.5px solid #000;  */
       padding: 8px;
       box-sizing: border-box;
     }
 
+
+    .clear-button {
+        background-color: #fff; /* Background color */
+        color: #333; /* Text color */
+        border: 1px solid #333; /* Border color */
+        padding: 8px 16px; /* Padding for better visual */
+        cursor: pointer; /* Cursor on hover */
+        font-size: 14px; /* Font size */
+        border-radius: 4px; /* Rounded corners */
+        outline: none; /* Remove default focus outline */
+      }
+  
+      .clear-button:hover {
+        background-color: #d71a2a; /* Background color on hover */
+      }
+
+      .button-container {
+        text-align: left; /* Căn trái */
+      }
+  
+      .custom-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        text-align: center; /* Thiết lập lại text-align để giữ nút ở giữa */
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+        border: none;
+      }
+
+     

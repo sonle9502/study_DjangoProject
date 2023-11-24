@@ -2,8 +2,6 @@
 {% block title %}List Task!{% endblock %}
 
 {% block content %}
-<h2>Welcome to the Home Page!</h2>
-<p>This is the content for the home page.</p>
 <div class="TaskList-html">
     <div class="LoginAndLogout">
         {% if user.is_authenticated %}
@@ -13,35 +11,56 @@
         <p><a href="{% url 'login' %}">Login</a></p>
         {% endif %}
     </div>
-    <table>
-    
+    <button id="clear_condition" class="clear-button">Clear</button>
+
+    <div>
         <h1 style="color: black;">タスクリスト</h1>
-        <h1><td><a href="{% url 'task_create' %}">タスク追加</a></td></h1>
+        <h2 style="text-align: left;"><td><a href="{% url 'task_create' %}">タスク追加</a></td></h2>
 
         <form action="" method="get">
             {% csrf_token %}
-            <input type="text" name="search" value="{{ search }}" >
-            <input type="submit" name="" value="検索">
-        </form>
-
-        <!-- ポップアップメッセージ -->
-        {% for task in TaskList %}
-            <div class="table">
-                <div class="row">
-                    
-                    
-                    <!-- 初期のボタン -->
-                    <div class="popup" id="popup_{{ task.id }}"  style="display: none;">{{ task.description }}</div>
-                    
-                   
-                    <div class="cell">{{ task.title }}</div>
-                    <div class="cell kakuninButton" data-task-id="{{ task.id }}">確認</div>
-                    <div class="cell"><a href="{% url 'task_edit' task.id %}">編集</a></div>
-                    <div class="cell"><a href="{% url 'task_delete' task.id %}">削除</a></div>
-                </div>
+            <div>
+                <datalist name="selected_item" id="conditions">
+                    <option value="ID">
+                    <option value="TASK NAME"> 
+                    <!-- Add more options as needed -->
+                </datalist>
+                <label for="condition-search">Choose a condition: </label>
+                <div class="button-container">
+                    <input type="text" name="condition_search" id="condition" list="conditions" placeholder="Type a condition" "> 
+                </div>  
             </div>
+            <div>
+                <label for="">Choose a text  : </label>  
+                <div class="button-container">
+                    <input type="text" name="text_search" value="{{ text_search }}" >
+                    <input type="submit" name="" value="検索">
+                </div>  
+            </div>
+        </form>
+        <!-- ポップアップメッセージ -->
+    </div>
+    <div class="table">
+        <div class="row header">
+            <div class="ID_Table">ID</div>
+            <div class="cell">TASK NAME</div>
+            <!-- <div class="cell">内容ホーバ</div> -->
+            <div class="cell">Edit</div>
+            <div class="cell">Delete</div>
+        </div>
+        {% for task in TaskList %}
+        <div class="row">
+            <!-- 初期のボタン -->
+            <div class="popup" id="popup_{{ task.id }}"  style="display: none;">{{ task.description }}</div>
+            
+            <div class="ID_Table">{{ task.id }}</div>
+            <div class="cell kakuninButton" data-task-id="{{ task.id }}">{{ task.title }}</div>
+            <!-- <div class="cell kakuninButton" data-task-id="{{ task.id }}">確認</div> -->
+            <div class="cell"><a href="{% url 'task_edit' task.id %}">編集</a></div>
+            <div class="cell"><a href="{% url 'task_delete' task.id %}">削除</a></div>
+        </div>
         {% endfor %}
-    </table>
+    </div>
 </div>
 
 {% endblock %}

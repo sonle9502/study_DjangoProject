@@ -27,20 +27,35 @@ class TaskList(LoginRequiredMixin,ListView):
         # Filter tasks based on the currently logged-in user
         context = super().get_context_data(**kwargs)
 
-        input_search_value = self.request.GET.get("search")
+        input_searchText_value = self.request.GET.get("text_search")
+        input_searchCondition_value = self.request.GET.get("condition_search")
+
         # Filter data based on the user
         filtered_data = Task.objects.filter(user = self.request.user)
 
-        if input_search_value:
-            filtered_data = filtered_data.filter(title__icontains = input_search_value)
+        if input_searchCondition_value == "ID":
+            filtered_data = filtered_data.filter(id__icontains = input_searchText_value)
+            print(filtered_data)
+
+        elif input_searchCondition_value == "TASK NAME":
+
+            filtered_data = filtered_data.filter(title__icontains = input_searchText_value)
+            print(filtered_data)
+
         #search_data = Task.objects.filter(title_startseith = input_search_value )
         # Add the filtered data to the context
-        context['TaskList'] = filtered_data
-        if input_search_value is not None:
-            context['search'] = input_search_value
+        if input_searchCondition_value is not None:
+            context["text_condition_search"] = input_searchCondition_value
         else:
-            context["search"] = ""
+            context["text_condition_search"] = ""
+
+        context['TaskList'] = filtered_data
+        if input_searchText_value is not None:
+            context['text_search'] = input_searchText_value
+        else:
+            context["text_search"] = ""
         return context
+        
 
 class TaskCreate(LoginRequiredMixin,CreateView):
     model = Task
