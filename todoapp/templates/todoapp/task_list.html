@@ -26,16 +26,20 @@
 
         <!-- ポップアップメッセージ -->
         {% for task in TaskList %}
-            <tr >
-                <td style="padding: 10px;">{{ task.title }}</td>
-
-                
-                <td style="text-decoration: underline;" class="kakuninButton" data-task-id="{{ task.id }}">確認</td>
-                <!-- 初期のボタン -->
-                <div id="popup_{{ task.id }}" class="popup" style="display: none;">{{ task.description }}</div>
-                <td><a href="{% url 'task_edit' task.id %}">編集</a></td>
-                <td><a href="{% url 'task_delete' task.id %}">削除</a></td>
-            </tr>
+            <div class="table">
+                <div class="row">
+                    
+                    
+                    <!-- 初期のボタン -->
+                    <div class="popup" id="popup_{{ task.id }}"  style="display: none;">{{ task.description }}</div>
+                    
+                   
+                    <div class="cell">{{ task.title }}</div>
+                    <div class="cell kakuninButton" data-task-id="{{ task.id }}">確認</div>
+                    <div class="cell"><a href="{% url 'task_edit' task.id %}">編集</a></div>
+                    <div class="cell"><a href="{% url 'task_delete' task.id %}">削除</a></div>
+                </div>
+            </div>
         {% endfor %}
     </table>
 </div>
