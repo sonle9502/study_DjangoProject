@@ -18,21 +18,21 @@
         <form action="" method="get">
             {% csrf_token %}
             <div>
-                <datalist name="selected_item" id="conditions">
+                <datalist id="conditions">
                     <option value="ID">
                     <option value="TASK NAME"> 
                     <!-- Add more options as needed -->
                 </datalist>
                 <label for="condition-search">Choose a condition: </label>
                 <div class="button-container">
-                    <input type="text" name="condition_search" id="condition" list="conditions" placeholder="Type a condition"> 
+                    <input type="text" name="condition_search" id="condition" list="conditions" placeholder="Type a condition" > 
                 </div>  
             </div>
             <div>
                 <label for="">Choose a text  : </label>  
                 <div class="button-container">
                     <input type="text" name="text_search" value="{{ text_search }}" >
-                    <input type="submit" name="" value="検索">
+                    <input type="submit" id="searchButton" name="" value="検索">
                 </div>  
             </div>
         </form>

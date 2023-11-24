@@ -32,10 +32,19 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
     //Get info of clear condition button in search monitor
-    var myButton = document.getElementById('clear_condition');
-    myButton.addEventListener('click', function() {
-        
-        alert(myButton.textContent);
-    });
+    
 
+    var searchButton = document.getElementById("searchButton");
+    var ConditionInput = document.getElementById('condition');
+    var dataList = document.getElementById('conditions');
+
+    searchButton.addEventListener("click", function(){
+        if (ConditionInput.value == "") {
+            alert("Please choose a condition");
+            console.log('Hello console');
+            dataList.value = dataList.value
+        }
+    })
+    ConditionInput.addEventListener("click", function(){
+    })
 });
