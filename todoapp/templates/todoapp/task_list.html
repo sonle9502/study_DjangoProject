@@ -41,7 +41,7 @@
     <div class="table">
         <div class="row header">
             <div class="ID_Table">ID</div>
-            <div class="cell">TASK NAME</div>
+            <div class="cell" style="">TASK NAME</div>
             <!-- <div class="cell">内容ホーバ</div> -->
             <div class="cell">Edit</div>
             <div class="cell">Delete</div>
@@ -52,7 +52,7 @@
             <div class="popup" id="popup_{{ task.id }}"  style="display: none;">{{ task.description }}</div>
             
             <div class="ID_Table">{{ task.id }}</div>
-            <div class="cell kakuninButton" data-task-id="{{ task.id }}">{{ task.title }}</div>
+            <div class="cell kakuninButton" style="text-decoration: underline" data-task-id="{{ task.id }}">{{ task.title }}</div>
             <!-- <div class="cell kakuninButton" data-task-id="{{ task.id }}">確認</div> -->
             <div class="cell"><a href="{% url 'task_edit' task.id %}">編集</a></div>
             <div class="cell"><a href="{% url 'task_delete' task.id %}">削除</a></div>
